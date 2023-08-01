@@ -12,7 +12,7 @@ create table if not exists users (
     gender BIT,
     birthday DATE,
     address NVARCHAR(500),
-    course NVARCHAR(100) --khoa hoc
+    course NVARCHAR(100) 
 );
 
 -- bài viết, thông báo
