@@ -1088,9 +1088,9 @@ values ('CNY', '2023-07-09', '10:33', 'Science', 'ENG101', 'John Smith', '994 Ev
 ('MRO', '2023-08-01', '9:51', 'English', 'ARTS110', 'Michael Davis', '55790 Armistice Alley', 0, 3),
 ('CNY', '2023-08-29', '17:11', 'History', 'ENG101', 'Sarah Thompson', '154 Anderson Park', 1, 3),
 ('IDR', '2023-07-21', '13:06', 'History', 'MATH202', 'David Wilson', '395 Almo Place', 1, 2);
-
 UPDATE schedules set class_name = "MD17306"
 UPDATE schedules set room = "T310", teacher_name="chann3" where id <= 500
 UPDATE schedules set room = "T308", teacher_name="dinhnt24" where id > 500
 UPDATE schedules set course_name = "Android Networking - MOB403" WHERE teacher_name="chann3"
 UPDATE schedules set course_name = "Lập trình game 2D - MOB403" WHERE teacher_name="dinhnt24"
+-- ket thuc bang lịch hoc
