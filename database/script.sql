@@ -12,7 +12,7 @@ create table if not exists users (
     gender BIT,
     birthday DATE,
     address NVARCHAR(500),
-    course NVARCHAR(100)
+    course NVARCHAR(100) --khoa hoc
 );
 
 -- bài viết, thông báo
@@ -38,8 +38,11 @@ create table if not exists schedules (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-
-
+insert into users (avatar, name, email, student_code, gender, birthday, address, course) values ('https://robohash.org/estquotempora.png?size=50x50&set=set1', 'Dunstan', 'dheffernan0@blogspot.com', 'PS23331', 1, '2023-06-09', '534 Havey Drive', 'LTMT');
+insert into users (avatar, name, email, student_code, gender, birthday, address, course) values ('https://robohash.org/aliquidcupiditatequi.png?size=50x50&set=set1', 'Philippe', 'pmcgarel1@cnet.com', 'PS24142', 0, '2023-07-30', '39564 Merchant Alley', 'LTMT');
+insert into users (avatar, name, email, student_code, gender, birthday, address, course) values ('https://robohash.org/voluptatemvoluptatibusnon.png?size=50x50&set=set1', 'Linnet', 'lpattemore2@yolasite.com', 'PS12344', 0, '2023-04-22', '35 Loeprich Court', 'LTMT');
+insert into users (avatar, name, email, student_code, gender, birthday, address, course) values ('https://robohash.org/ipsamcommodibeatae.png?size=50x50&set=set1', 'Olivie', 'osiaskowski3@hc360.com', 'PS12345', 0, '2023-04-05', '31852 Maywood Center', 'LTMT');
+insert into users (avatar, name, email, student_code, gender, birthday, address, course) values ('https://robohash.org/quiautemsequi.png?size=50x50&set=set1', 'Agnes', 'ameasor4@deviantart.com', 'PS24413', 1, '2023-01-22', '6929 Washington Road', 'LTMT');
 
 insert into posts (title, content, created_at) values ('Hanussen', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
 
@@ -83,8 +86,6 @@ Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turp
 Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
 
 Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.', '2022-07-19');
-
-
 
 
 
