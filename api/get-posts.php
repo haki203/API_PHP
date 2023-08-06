@@ -4,11 +4,9 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-
 include_once("../database/connection.php");
 // kết hợp phân trang và tìm kiếm theo từ khóa
 // url: http://127.0.0.1:3456/api/get-posts.php?keyword=abc&page=1&limit=2
-
 try {
     // đọc thông tin query từ request
     $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : "";

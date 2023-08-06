@@ -6,26 +6,22 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 include_once("../database/connection.php");
-
 try {
     // lấy thông tin từ request
     $body = json_decode(file_get_contents("php://input"));
-
     $email = $body->email;
-    $name = $body->name;
-
     // nếu ko nhập email || name thì trả về false
-    if (empty($email) || empty($name)) {
+    if (empty($email)) {
         echo json_encode(array(
             "status" => false,
             "message" => "Email or name is empty"
         ));
         return;
     }
-
     // fake info
     // namntps12345@fpt.edu.vn
-    $avatar = "";
+    $name="ABC";
+    $avatar = "https://robohash.org/estquotempora.png?size=50x50&set=set1";
     // cắt chuỗi từ @ trở về trước 7 kí tự
     $substring = strstr($email, "@", true);
     $student_code = substr($substring, -7);
@@ -59,6 +55,9 @@ try {
     $birthday = $row['birthday'];
     $address = $row['address'];
     $course = $row['course'];
+    $now = time();
+    $tokenData = $email . $now;
+    $token = md5($tokenData);
     // trả về thông tin user dưới dạng json
     echo json_encode(array(
         "status" => true,
@@ -66,13 +65,15 @@ try {
             "email" => $email,
             "id" => $id,
             "avatar" => $avatar,
+            "name" => $name,
             "student_code" => $student_code,
             "gender" => $gender,
             "birthday" => $birthday,
             "address" => $address,
             "course" => $course
         ),
-        "token" => "token" // tự xử
+        
+        "token" => $token
     ));
 } catch (Exception $e) {
     echo json_encode(array(
@@ -80,4 +81,4 @@ try {
         "message" => $e->getMessage()
     ));
 }
-// JWT: json web token
+?>
