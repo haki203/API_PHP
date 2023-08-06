@@ -1094,3 +1094,9 @@ UPDATE schedules set room = "T308", teacher_name="dinhnt24" where id > 500
 UPDATE schedules set course_name = "Android Networking - MOB403" WHERE teacher_name="chann3"
 UPDATE schedules set course_name = "Lập trình game 2D - MOB403" WHERE teacher_name="dinhnt24"
 -- ket thuc bang lịch hoc
+UPDATE schedules set time = "Ca 1" where id <= 166
+UPDATE schedules set time = "Ca 2" where id > 166 AND id <= 332
+UPDATE schedules set time = "Ca 3" where id > 332 and id <= 498
+UPDATE schedules set time = "Ca 4" where id > 498 and id <= 664
+UPDATE schedules set time = "Ca 5" where id > 664 and id <= 830
+UPDATE schedules set time = "Ca 6" where id > 830

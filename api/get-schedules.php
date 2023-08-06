@@ -18,36 +18,21 @@ include_once("../database/connection.php");
 try {
     // đọc thông tin query từ request
     $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : -1;
-    $type = isset($_GET['type']) ? $_GET['type'] : -1;
+    $type = isset($_GET['type']) ? $_GET['type'] : 0;
     $date = isset($_GET['date']) ? $_GET['date'] : -1;
-    $asc = isset($_GET['asc']) ? $_GET['asc'] : 1;
-    // kiểm tra dữ liệu
-    if (
-        $user_id == -1 || !is_numeric($user_id)
-        || !is_numeric($type) || ($type != 0 && $type != 1)
-        || $date == -1
-    ) {
-        echo json_encode(array(
-            "status" => false,
-            "message" => "Invalid data"
-        ));
-        return;
-    }
+    $asc = isset($_GET['asc']) ? $_GET['asc'] : -1;
     // lấy dữ liệu từ database
-    // 7 ngay toi
+    // ngày tới
     if ($asc == 1) {
         $result = $dbConn->query("SELECT id, room, day, time, course_name,
         class_name, teacher_name, type, user_id, address
-         FROM schedules where user_id=1 and type=0 and day >='2023-08-01' AND day <= DATE_ADD('2023-08-01', INTERVAL $date DAY) ORDER BY `day` asc LIMIT 0,100  ");
+         FROM schedules where user_id=" . $user_id . " and type=" . $type . " and day >='2023-08-01' AND day <= DATE_ADD('2023-08-01', INTERVAL " . $date . " DAY) ORDER BY `day` asc LIMIT 0,100  ");
     } else {
-        // 7 ngay trươc
+        // ngay trước
         $result = $dbConn->query("SELECT id, room, day, time, course_name,
     class_name, teacher_name, type, user_id, address
-     FROM schedules where user_id=1 and type=0 and day <='2023-08-01' AND day >= DATE_SUB('2023-08-01', INTERVAL $date DAY) ORDER BY `day` DESC LIMIT 0,100");
+     FROM schedules where user_id=" . $user_id . " and type=" . $type . " and day <='2023-08-01' AND day >= DATE_SUB('2023-08-01', INTERVAL " . $date . " DAY) ORDER BY `day` DESC LIMIT 0,100");
     }
-    // $result = $dbConn->query(" SELECT id, room, day, time, course_name,
-    // class_name, teacher_name, type, user_id, address
-    //  FROM schedules where user_id=$user_id and type=$type and day='$date' ");
     $schedules = $result->fetchAll(PDO::FETCH_ASSOC);
     // trả về dạng json
     echo json_encode(array(
