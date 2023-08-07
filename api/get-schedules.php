@@ -26,12 +26,12 @@ try {
     if ($asc == 1) {
         $result = $dbConn->query("SELECT id, room, day, time, course_name,
         class_name, teacher_name, type, user_id, address
-         FROM schedules where user_id=" . $user_id . " and type=" . $type . " and day >='2023-08-01' AND day <= DATE_ADD('2023-08-01', INTERVAL " . $date . " DAY) ORDER BY `day` asc LIMIT 0,100  ");
+         FROM schedules where user_id=" . $user_id . " and type=" . $type . " and day >='2023-08-01' AND day <= DATE_ADD('2023-08-01', INTERVAL " . $date . " DAY) ORDER BY `day` DESC LIMIT 0,100  ");
     } else {
         // ngay trước
         $result = $dbConn->query("SELECT id, room, day, time, course_name,
     class_name, teacher_name, type, user_id, address
-     FROM schedules where user_id=" . $user_id . " and type=" . $type . " and day <='2023-08-01' AND day >= DATE_SUB('2023-08-01', INTERVAL " . $date . " DAY) ORDER BY `day` DESC LIMIT 0,100");
+     FROM schedules where user_id=" . $user_id . " and type=" . $type . " and day <='2023-08-01' AND day >= DATE_SUB('2023-08-01', INTERVAL " . $date . " DAY) ORDER BY `day` asc LIMIT 0,100");
     }
     $schedules = $result->fetchAll(PDO::FETCH_ASSOC);
     // trả về dạng json
