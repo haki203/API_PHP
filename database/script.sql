@@ -18,6 +18,7 @@ create table if not exists users (
 -- bài viết, thông báo
 create table if not exists posts (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    image VARCHAR(5000) NOT NULL,
     title NVARCHAR(100) NOT NULL,
     content NVARCHAR(5000) NOT NULL,
     created_at DATETIME NOT NULL -- ngày tạo
@@ -44,42 +45,45 @@ insert into users (avatar, name, email, student_code, gender, birthday, address,
 insert into users (avatar, name, email, student_code, gender, birthday, address, course) values ('https://robohash.org/ipsamcommodibeatae.png?size=50x50&set=set1', 'Olivie', 'osiaskowski3@hc360.com', 'PS12345', 0, '2023-04-05', '31852 Maywood Center', 'LTMT');
 insert into users (avatar, name, email, student_code, gender, birthday, address, course) values ('https://robohash.org/quiautemsequi.png?size=50x50&set=set1', 'Agnes', 'ameasor4@deviantart.com', 'PS24413', 1, '2023-01-22', '6929 Washington Road', 'LTMT');
 
-insert into posts (title, content, created_at) values ('Hanussen', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', '2023-04-09');
-insert into posts (title, content, created_at) values ('Heartbreakers', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', '2022-12-09');
-insert into posts (title, content, created_at) values ('Mulberry Street', 'In congue. Etiam justo. Etiam pretium iaculis justo.
-
-In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', '2023-04-14');
-insert into posts (title, content, created_at) values ('Midnight Clear, A', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', '2022-11-21');
-insert into posts (title, content, created_at) values ('Invisible Man, The', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
+insert into posts (image, title, content, created_at) values ('https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/364773968_775350577930977_919362056076814472_n.jpg?stp=dst-jpg_p843x403&_nc_cat=105&ccb=1-7&_nc_sid=0debeb&_nc_ohc=6-vwifFf9u8AX_pW-zr&_nc_ht=scontent.fsgn4-1.fna&oh=00_AfBvhiqxIWz65Ly6ZusHDkt2HewBu0mlm61wxLrZzBLI3w&oe=64D4C01E','Chann3', 'CHẮC CHẮN YÊU LÀ ĐÂY: SƠN TÙNG M-TP CHÍNH THỨC QUAY TRỞ LẠI HAPPY BEE 13. 
+Sơn Tùng M-TP xác nhận sẽ có mặt tại Happy Bee 13 và biểu diễn tại 3 cơ sở Cần Thơ, Đà Nẵng, TP HCM', '2023-09-10');
+insert into posts (image, title, content, created_at) values ('https://scontent.fsgn13-4.fna.fbcdn.net/v/t39.30808-6/363420125_773043148161720_2924513650582670481_n.jpg?stp=dst-jpg_p843x403&_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=Sq7eTzg9jFAAX9qg5HK&_nc_ht=scontent.fsgn13-4.fna&oh=00_AfDsL4UxxezlxrNDHfVCVUqTiPMVqYCoh565oOYotYASYg&oe=64D54DBE','Dinhnt', 'LINE-UP "VẠN NGƯỜI MÊ" GÓP MẶT TẠI HAPPY BEE 13 TP.HCM. 
+Đắm chìm trong không gian âm nhạc cùng những ngôi sao hàng đầu: Sơn Tùng M-TP, Rapper Đen, B Ray, HIEUTHUHAI, Tăng Duy Tân, Masew, MC Hoàng Rapper', '2023-09-10');
+insert into posts (image, title, content, created_at) values ('https://scontent.fsgn13-2.fna.fbcdn.net/v/t39.30808-6/364789131_772786701520698_6487804484452724944_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=rU5ZUa7N3r8AX_9d96C&_nc_ht=scontent.fsgn13-2.fna&oh=00_AfB94w4Hn1zlE5QBj6AyV-fkccZJoMKh6StjlloIBcn5OA&oe=64D628E6','Vunlps', 'ĐẾM NGƯỢC CHỈ CÒN 01 NGÀY ĐẾN LỄ KHAI GIẢNG TÂN SINH VIÊN K19.3.2. Tân sinh viên K19.3.2, are you ready??', '2023-08-02');
+insert into posts (image, title, content, created_at) values ('https://scontent.fsgn3-1.fna.fbcdn.net/v/t39.30808-6/364176217_771290238337011_4298462421758210368_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=jjVSF9zMG00AX9Wj5Pf&_nc_ht=scontent.fsgn3-1.fna&oh=00_AfCiuLIexhunZ4KD4v1KdmJ4vSrAFOz4Bj5XgF8GVoNVIQ&oe=64D636ED', 'Tholps'
+, 'MINIGAME: CHỤP HÌNH "CỰC XINH" – NHẬN QUÀ “CỰC XỊN”. Đối tượng tham gia: Đặc quyền dành riêng cho Tân sinh viên 2K5', '2022-08-02');
+insert into posts (title, content, created_at) values ('https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/364773968_775350577930977_919362056076814472_n.jpg?stp=dst-jpg_p843x403&_nc_cat=105&ccb=1-7&_nc_sid=0debeb&_nc_ohc=6-vwifFf9u8AX_pW-zr&_nc_ht=scontent.fsgn4-1.fna&oh=00_AfBvhiqxIWz65Ly6ZusHDkt2HewBu0mlm61wxLrZzBLI3w&oe=64D4C01E',
+ 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
 
 In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', '2023-03-17');
-insert into posts (title, content, created_at) values ('Forget Me Not', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+insert into posts (title, content, created_at) values ('https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/364773968_775350577930977_919362056076814472_n.jpg?stp=dst-jpg_p843x403&_nc_cat=105&ccb=1-7&_nc_sid=0debeb&_nc_ohc=6-vwifFf9u8AX_pW-zr&_nc_ht=scontent.fsgn4-1.fna&oh=00_AfBvhiqxIWz65Ly6ZusHDkt2HewBu0mlm61wxLrZzBLI3w&oe=64D4C01E',
+ 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
 
 Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
 
 Phasellus in felis. Donec semper sapien a libero. Nam dui.
 
 Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', '2023-07-01');
-insert into posts (title, content, created_at) values ('Riot On!', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
+insert into posts (title, content, created_at) values ('https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/364773968_775350577930977_919362056076814472_n.jpg?stp=dst-jpg_p843x403&_nc_cat=105&ccb=1-7&_nc_sid=0debeb&_nc_ohc=6-vwifFf9u8AX_pW-zr&_nc_ht=scontent.fsgn4-1.fna&oh=00_AfBvhiqxIWz65Ly6ZusHDkt2HewBu0mlm61wxLrZzBLI3w&oe=64D4C01E',
+ 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.
 
 Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
 
 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
 Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', '2022-12-26');
-insert into posts (title, content, created_at) values ('Career', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+insert into posts (title, content, created_at) values ('https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/364773968_775350577930977_919362056076814472_n.jpg?stp=dst-jpg_p843x403&_nc_cat=105&ccb=1-7&_nc_sid=0debeb&_nc_ohc=6-vwifFf9u8AX_pW-zr&_nc_ht=scontent.fsgn4-1.fna&oh=00_AfBvhiqxIWz65Ly6ZusHDkt2HewBu0mlm61wxLrZzBLI3w&oe=64D4C01E',
+ 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
 
 Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
 
 Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
 
 In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', '2023-02-12');
-insert into posts (title, content, created_at) values ('Fans', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', '2022-08-10');
-insert into posts (title, content, created_at) values ('Aladdin', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+insert into posts (title, content, created_at) values ('https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/364773968_775350577930977_919362056076814472_n.jpg?stp=dst-jpg_p843x403&_nc_cat=105&ccb=1-7&_nc_sid=0debeb&_nc_ohc=6-vwifFf9u8AX_pW-zr&_nc_ht=scontent.fsgn4-1.fna&oh=00_AfBvhiqxIWz65Ly6ZusHDkt2HewBu0mlm61wxLrZzBLI3w&oe=64D4C01E',
+ 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', '2022-08-10');
+insert into posts (title, content, created_at) values ('https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/364773968_775350577930977_919362056076814472_n.jpg?stp=dst-jpg_p843x403&_nc_cat=105&ccb=1-7&_nc_sid=0debeb&_nc_ohc=6-vwifFf9u8AX_pW-zr&_nc_ht=scontent.fsgn4-1.fna&oh=00_AfBvhiqxIWz65Ly6ZusHDkt2HewBu0mlm61wxLrZzBLI3w&oe=64D4C01E',
+ 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
 
 Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
 

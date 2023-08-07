@@ -13,7 +13,6 @@ include_once("../database/connection.php");
 // url: http://127.0.0.1:3456/api/get-schedules.php?user_id=1&type=1&date=2021-05-01
 // type = 0: học, 1: thi
 // date = yyyy-mm-dd
-
 try {
     // đọc thông tin query từ request
     $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : -1;

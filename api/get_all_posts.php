@@ -9,17 +9,17 @@ include_once("../database/connection.php");
 // url: http://127.0.0.1:3456/api/get_all_posts
 try {
     //code...
-    $result = $dbConn->query("SELECT id, title, content, created_at FROM posts");
+    $result = $dbConn->query("SELECT id,image, title, content, created_at FROM posts");
     $posts = $result->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode(array(
         "status" => true,
-        "data" => $posts
+        "posts" => $posts
       ));
 } catch (Exception $e) {
     //throw $th;
     echo json_encode(array(
         "status" => false,
-        "message" => $e->getMessage()
+        "posts" => $e->getMessage()
       ));
 }
 ?>
