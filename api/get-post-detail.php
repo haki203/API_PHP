@@ -15,18 +15,17 @@ try {
         throw new Exception("id không hợp lệ");
     }
     // lấy dữ liệu từ database
-    $result = $dbConn->query("SELECT id, title, content, created_at
-     FROM posts 
-    where id = $id");
+    $result = $dbConn->query("SELECT id,image, title, content, created_at
+     FROM posts  where id = $id");
     $post = $result->fetch(PDO::FETCH_ASSOC);
     // trả về dạng json
     echo json_encode(array(
         "status" => true,
-        "data" => $post
+        "post" => $post
     ));
 } catch (Exception $e) {
     echo json_encode(array(
         "status" => false,
-        "message" => $e->getMessage()
+        "post" => $e->getMessage()
     ));
 }
